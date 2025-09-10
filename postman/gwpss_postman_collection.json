@@ -1,0 +1,95 @@
+{
+  "info": {
+    "name": "GWPS Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Ping",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "List Exams",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/api/exams",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "api",
+            "exams"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Register Student",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\\n  \\\"name\\\": \\\"Jane Doe\\\",\\n  \\\"regNo\\\": \\\"GWPS002\\\",\\n  \\\"password\\\": \\\"pass123\\\"\\n}"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/api/students/register",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            "register"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Upload Result",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\\n  \\\"regNo\\\": \\\"GWPS001\\\",\\n  \\\"examId\\\": \\\"EX1\\\",\\n  \\\"data\\\": { \\\"score\\\": 80 }\\n}"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/api/results/upload",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "api",
+            "results",
+            "upload"
+          ]
+        }
+      }
+    }
+  ]
+}

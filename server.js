@@ -14,5 +14,9 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true 
   .catch(err => console.error('Mongo connect error', err));
 
 app.get('/api/ping', (req,res) => res.json({ ok:true, message: "GWPS backend running" }));
+app.get("/", (req, res) => {
+  res.send("Backend is running successfully 🚀");
+});
+
 
 app.listen(PORT, () => console.log(`Server listening on ${PORT}`));

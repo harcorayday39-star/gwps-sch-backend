@@ -1,0 +1,186 @@
+{
+  "info": {
+    "name": "GWPSS Backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Ping",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            ""
+          ]
+        }
+      }
+    },
+    {
+      "name": "Admin Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"email\": \"admin@gwpss.com\", \"password\": \"admin123\" }"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/api/auth/admin/login",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "admin",
+            "login"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Student Register (admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{ADMIN_TOKEN}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"name\":\"Jane Doe\", \"regNo\":\"GWPS002\", \"password\":\"pass123\" }"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/api/students/register",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "api",
+            "students",
+            "register"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Exam (admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{ADMIN_TOKEN}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"title\":\"Math Test\", \"durationMinutes\":5, \"mcqs\":[{\"q\":\"2+2\",\"options\":[\"1\",\"2\",\"3\",\"4\"],\"answerIndex\":3}], \"written\": [{\"q\":\"Explain 2+2\"}] }"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/api/exams/create",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "api",
+            "exams",
+            "create"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Upload Result (admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{ADMIN_TOKEN}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{ \"regNo\":\"GWPS001\", \"examId\":\"EX1\", \"result\": {\"score\":85} }"
+        },
+        "url": {
+          "raw": "{{BASE_URL}}/api/results/upload",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "api",
+            "results",
+            "upload"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Release Results (admin)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{ADMIN_TOKEN}}"
+          }
+        ],
+        "url": {
+          "raw": "{{BASE_URL}}/api/results/release",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "api",
+            "results",
+            "release"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Student Results",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{BASE_URL}}/api/results/GWPS001",
+          "host": [
+            "{{BASE_URL}}"
+          ],
+          "path": [
+            "api",
+            "results",
+            "GWPS001"
+          ]
+        }
+      }
+    }
+  ]
+}
